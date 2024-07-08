@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		#myImg{
+			position: absolute;
+			left: 100px;
+			top:500px;
+		}
+	</style>
+</head>
+<body onkeyup="keyPressed(event)" onmousemove="mouseMoved(event)">
+	<button onclick="startLeft()">Left</button>
+	<button onclick="startRight()">Right</button>
+	<button onclick="startTop()">Top</button>
+	<button onclick="startBottom()">Bottom</button>
+	<span id="coodinates"></span>
+	<br/>
+	<img id="myImg" src="dice1.jpg">
+
+	<script type="text/javascript">
+		curreltLeft=100;
+		curreltTop=500;
+		iTop=0;
+		iLeft=0;
+		iRight=0;
+		iBottom=0;
+
+		function mouseMoved(e){
+			document.getElementById('coodinates').innerHTML=e.clientX+","+e.clientY;
+		}
+
+		function keyPressed(e){
+			if(e.key=="ArrowDown"){
+				startBottom();
+			}else if(e.key=="ArrowUp"){
+				startTop();
+			}
+			else if(e.key=="ArrowRight"){
+				startRight();
+			}
+			else if(e.key=="ArrowLeft"){
+				startLeft();
+			}
+		}
+
+		function clearAllInterval(){
+			clearInterval(iRight);
+			clearInterval(iLeft);
+			clearInterval(iTop);
+			clearInterval(iBottom);
+		}
+		function startLeft(){
+			clearAllInterval();
+			iLeft = setInterval(moveLeft,100);
+		}
+		function startRight(){
+			clearAllInterval();
+			iRight = setInterval(moveRight,100);
+		}
+		function startTop(){
+			clearAllInterval();
+			iTop = setInterval(moveTop,100);
+		}
+		function startBottom(){
+			clearAllInterval();
+			iBottom = setInterval(moveBottom,100);
+		}
+		function moveRight(){
+			curreltLeft+=10;
+			if(curreltLeft>screen.availWidth){
+				curreltLeft=0;
+			}
+			imgRef = document.getElementById('myImg');
+			imgRef.style.left = curreltLeft+"px";
+		}
+		function moveLeft(){
+			curreltLeft-=10;
+			if(curreltLeft<0){
+				curreltLeft=screen.availWidth-30;
+			}
+			imgRef = document.getElementById('myImg');
+			imgRef.style.left = curreltLeft+"px";
+		}
+		function moveBottom(){
+			curreltTop+=10;
+			if(curreltTop>screen.availHeight){
+				curreltTop=30;
+			}
+			imgRef = document.getElementById('myImg');
+			imgRef.style.top = curreltTop+"px";
+		}
+		function moveTop(){
+			curreltTop-=10;
+			if(curreltTop<30){
+				curreltTop=screen.availHeight-36;
+			}
+			imgRef = document.getElementById('myImg');
+			imgRef.style.top = curreltTop+"px";
+		}
+
+	</script>
+</body>
+</html>

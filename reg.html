@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<input type="text" id="txt">
+	<span id="errMsg"></span>
+	<br/>
+	<button onclick="validate()">Click</button>
+	<script type="text/javascript">
+		function validate(){
+			txt = document.getElementById('txt').value;
+
+			pattern = "^[a-zA-Z0-9]+$";
+			regexp = new RegExp(pattern);
+			if(regexp.test(txt)){
+				//valid
+				document.getElementById('errMsg').innerHTML = "Valid";
+			} 
+			else{
+				//invalid
+				document.getElementById('errMsg').innerHTML = "Invalid";
+			}
+		}
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+

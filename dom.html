@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>default title</title>
+	<style type="text/css">
+		span{
+			font-size: 30px;
+		}
+	</style>
+</head>
+<body>
+	<button onclick="startTimer()">Start</button>
+	<button onclick="stopTimer()">Stop</button>
+	<br/>
+	<span id="firstH1">0</span>:
+	<span id="secondH1">0</span>
+	<script type="text/javascript">
+		counter = 0;
+		timerInterval = 0;
+		function startTimer(){
+			timerInterval = setTimeout(incrementTimer,100);
+		}
+		function stopTimer(){
+			clearInterval(timerInterval);
+		}
+		function incrementTimer(){
+			temp1 = document.getElementById('firstH1')
+			temp2 = document.getElementById('secondH1')
+			counter++;
+			temp1.innerHTML = parseInt(counter/10);
+			temp2.innerHTML = counter%10;
+		}
+	</script>
+</body>
+</html>
