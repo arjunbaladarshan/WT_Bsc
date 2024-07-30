@@ -1,0 +1,11 @@
+{
+  "name": "areas",
+  "version": "1.0.0",
+  "description": "ghjhj g hjg j",
+  "main": "myimpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
